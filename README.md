@@ -35,6 +35,11 @@ Here’s the wiring diagram for the **Bus Passenger Monitoring System**:
 ![System Architecture](docs/Slave.png)
 
 ---
+## 🖼️ MQTT Payload
+
+![System Architecture](docs/payload.png)
+
+---
 
 
 ## 📡 Data Flow
