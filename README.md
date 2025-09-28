@@ -1,37 +1,32 @@
-🚌 Bus Passenger Monitoring System
+# 🚌 Bus Passenger Monitoring System
 
-A real-time IoT-based passenger monitoring system for buses, built using ESP32, ultrasonic sensors, RS485 communication, A9G GPS module, and MQTT.
+A real-time **IoT-based passenger monitoring system** for buses, built using **ESP32, ultrasonic sensors, RS485 communication, A9G GPS module, and MQTT**.  
 
-This system helps monitor the number of passengers getting in and out of a bus, along with location tracking, and publishes the data to a cloud MQTT broker for further analysis or integration into smart transportation dashboards.
+This project enables accurate passenger entry/exit detection and real-time bus tracking, with data published to an MQTT broker for analytics.
 
-🔧 System Overview
+---
 
-Total Sensors: 8 Ultrasonic sensors
+## 🔧 System Overview
 
-Modules:
+- **Total Sensors:** 8 Ultrasonic sensors  
+- **Modules:**  
+  - **Master Node**  
+    - 4 Ultrasonic Sensors  
+    - ESP32 Dev Board  
+    - RS485 TTL Module (to communicate with Slave)  
+    - A9G Module (GPS + GSM/GPRS)  
+    - MQTT Client (publishes data)  
+  - **Slave Node**  
+    - 4 Ultrasonic Sensors  
+    - ESP32 Dev Board  
+    - RS485 TTL Module (to send data to Master)  
 
-Master Node:
+---
 
-4 Ultrasonic Sensors
+## 📡 Data Flow
 
-ESP32 Dev Board
-
-RS485 TTL Module (to communicate with Slave)
-
-A9G Module (GPS + GSM/GPRS)
-
-Handles MQTT publishing
-
-Slave Node:
-
-4 Ultrasonic Sensors
-
-ESP32 Dev Board
-
-RS485 TTL Module (to send data to Master)
-
-Communication Flow:
-
-Slave counts passengers (4 sensors) → sends data via RS485 → Master
-
-Master counts passengers (4 sensors) + aggregates Slave data → attaches GPS → publishes to MQTT topic
+```mermaid
+graph TD
+A[Slave ESP32 + 4 Ultrasonic Sensors] -->|RS485| B[Master ESP32 + 4 Ultrasonic Sensors]
+B -->|GPS Data from A9G| C[(Data Processing in Master)]
+C -->|MQTT Publish| D[Cloud Broker / Dashboard]
