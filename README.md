@@ -22,7 +22,7 @@ This project enables accurate passenger entry/exit detection and real-time bus t
     - RS485 TTL Module (to send data to Master)  
 
 ---
-## 🖼️ Wiring Diagram
+## 🖼️ Wiring Diagram Master
 
 Here’s the wiring diagram for the **Bus Passenger Monitoring System**:  
 
@@ -30,7 +30,7 @@ Here’s the wiring diagram for the **Bus Passenger Monitoring System**:
 
 ---
 
-## 🖼️ System Architecture
+## 🖼️ Wiring Diagram Slave
 
 ![System Architecture](docs/Slave.png)
 
